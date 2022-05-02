@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-bootstrap4 = "*"
+uwsgi = "*"
+prometheus-client = "*"
+
+[dev-packages]
+sphinx = "*"
+pylint = "*"
+pytest = "*"
+behave = "*"
+coverage = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.9"

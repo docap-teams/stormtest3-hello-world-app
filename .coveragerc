@@ -1,0 +1,6 @@
+[report]
+omit =
+  conf.py
+  tests.py
+  bdd.py
+  functionaltest.py

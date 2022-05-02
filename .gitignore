@@ -1,0 +1,6 @@
+.vscode
+_build
+_static
+TESTS-bdd.xml
+coverage
+.coverage
