@@ -1,5 +1,6 @@
 // Replace all occurences of [your_quay_account] with your actual quay.io account.
 // Tip: use Replace, you find this in the menu under Edit -> Replace. 
+// Replace [prefix] with the prefix you used for creating your hello-world-app repository.
 
 pipeline {
   agent none
@@ -10,6 +11,7 @@ pipeline {
   }
 
   stages {
+// REMOVE THE COMMENT START (THE NEXT LINE)
 /*
   //Build goes here
     stage('Build') {
@@ -54,6 +56,7 @@ spec:
         } //container
       } //steps
     } //stage(build)
+// REMOVE THE COMMENT END (THE NEXT LINE)
 */
 
 /*
