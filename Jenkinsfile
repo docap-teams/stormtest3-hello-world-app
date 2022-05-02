@@ -1,3 +1,6 @@
+// Replace all occurences of [your_quay_account] with your actual quay.io account.
+// Tip: use Replace, you find this in the menu under Edit -> Replace. 
+
 pipeline {
   agent none
 
@@ -7,7 +10,7 @@ pipeline {
   }
 
   stages {
-
+/*
   //Build goes here
     stage('Build') {
       agent {
@@ -35,7 +38,7 @@ spec:
     projected:
       sources:
       - secret:
-          name: roymitchley-docap-pull-secret
+          name: [your_quay_account]-docap-pull-secret
           items:
             - key: .dockerconfigjson
               path: config.json
@@ -51,9 +54,9 @@ spec:
         } //container
       } //steps
     } //stage(build)
+*/
 
 /*
-
     //Test goes here
     stage('Test') {
       parallel {
@@ -70,7 +73,7 @@ metadata:
 spec:
   containers:
   - name: appy
-    image: quay.io/roymitchley/hello-world-app:${env.BUILD_ID}
+    image: quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}
     imagePullPolicy: IfNotPresent
     command:
     - cat
@@ -98,7 +101,7 @@ metadata:
 spec:
   containers:
   - name: appy
-    image: quay.io/roymitchley/hello-world-app:${env.BUILD_ID}
+    image: quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}
     imagePullPolicy: IfNotPresent
     command:
     - cat
@@ -135,7 +138,7 @@ metadata:
 spec:
   containers:
   - name: appy
-    image: quay.io/roymitchley/hello-world-app:${env.BUILD_ID}
+    image: quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}
     imagePullPolicy: IfNotPresent
     command:
     - cat
@@ -157,11 +160,12 @@ spec:
       }
     } //stage(BDD Tests)
 
-
   } //parallel
 } //stage(test)
 
+*/
 
+/*
     //Coverage goes here
     stage('Coverage') {
       agent {
@@ -174,7 +178,7 @@ metadata:
 spec:
   containers:
   - name: appy
-    image: quay.io/roymitchley/hello-world-app:${env.BUILD_ID}
+    image: quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}
     imagePullPolicy: IfNotPresent
     command:
     - cat
@@ -201,7 +205,9 @@ spec:
         stash includes: 'coverage/coverage.xml', name: 'cobertura-report'
       }
     }
+*/
 
+/*
     //SonarQube goes here
     stage('Sonarqube') {
       agent {
@@ -243,7 +249,9 @@ spec:
         }
       }
     }
+*/
 
+/*
     //Documentation generation goes here
     stage('Documentation') {
       agent {
@@ -256,7 +264,7 @@ metadata:
 spec:
   containers:
   - name: appy
-    image: quay.io/roymitchley/hello-world-app:${env.BUILD_ID}
+    image: quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}
     imagePullPolicy: IfNotPresent
     command:
     - cat
@@ -280,8 +288,9 @@ spec:
         ]
       }
     }
+*/
 
-
+/*
     //Deploy goes here
     stage('Deploy to Production') {
 
@@ -313,21 +322,20 @@ spec:
         //input message:'Approve deployment?'
         container('argo-cd-ci-builder') {
 
-          //get the GitOps repository - you're going to need to change roy-mitchley!          
+          //get the GitOps repository - you're going to need to change [teams] to your team name.          
           // GIT_CREDS_PSW is the app token. 
-          sh "git clone https://$GIT_CREDS_PSW@github.com/roymitchley/hello-world-deployment.git"
+          sh "git clone https://$GIT_CREDS_PSW@github.com/docap-teams/[team]-hello-world-deployment.git"
           sh "git config --global user.email 'ci@ci.com'"
           
           dir("hello-world-deployment") {
             //update the image to be the current build number from Jenkins
-            sh "cd prod && kustomize edit set image quay.io/roymitchley/hello-world-app:${env.BUILD_ID}"
+            sh "cd prod && kustomize edit set image quay.io/[your_quay_account]/hello-world-app:${env.BUILD_ID}"
             //and save it (or print "no changes")
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
         }
       }
     }
-
 */
 
   } //stages
