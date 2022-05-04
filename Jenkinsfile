@@ -328,7 +328,7 @@ spec:
           
           dir("stormtest5-hello-world-deployment") {
             //update the image to be the current build number from Jenkins
-            sh "cd prod && kustomize edit set image quay.io/smidigstorm/hello-world-app:${env.BUILD_ID}"
+            sh "cd test && kustomize edit set image quay.io/smidigstorm/hello-world-app:${env.BUILD_ID}"
             //and save it (or print "no changes")
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
