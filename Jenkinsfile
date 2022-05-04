@@ -38,7 +38,7 @@ spec:
     projected:
       sources:
       - secret:
-          name: smidigstorm-docap-pull-secret
+          name: arnehenrik.storm@gmail.com-docap-pull-secret
           items:
             - key: .dockerconfigjson
               path: config.json
