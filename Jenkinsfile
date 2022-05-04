@@ -12,7 +12,6 @@ pipeline {
 
   stages {
 // REMOVE THE COMMENT START (THE NEXT LINE)
-/*
   //Build goes here
     stage('Build') {
       agent {
@@ -57,7 +56,6 @@ spec:
       } //steps
     } //stage(build)
 // REMOVE THE COMMENT END (THE NEXT LINE)
-*/
 
 /*
     //Test goes here
