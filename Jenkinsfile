@@ -38,7 +38,7 @@ spec:
     projected:
       sources:
       - secret:
-          name: [your_quay_account]-docap-pull-secret
+          name: smidigstorm-docap-pull-secret
           items:
             - key: .dockerconfigjson
               path: config.json
