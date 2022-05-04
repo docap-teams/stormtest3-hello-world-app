@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: smidigstorm-docap-pull-secret
+data:
+  .dockerconfigjson: ewogICJhdXRocyI6IHsKICAgICJxdWF5LmlvIjogewogICAgICAiYXV0aCI6ICJjMjFwWkdsbmMzUnZjbTByWkc5allYQTZSVkJMTkVrMFZVcEtXRlZTVGxZelNUbElTRTB4T0VwRk16YzBUMXBEUTBKWk9WRTBURmxFTmtReFJsWmFUVWRZVGpsSE5WSkhVakEzTlRWWlZrTlJPQT09IiwKICAgICAgImVtYWlsIjogIiIKICAgIH0KICB9Cn0=
+type: kubernetes.io/dockerconfigjson
